@@ -120,4 +120,8 @@ def count_shots_by_player(data, player_name):
     """
     Count the number of shots taken by the provided player.
     """
-    return
+    player_name_filter = [dict for dict in data if dict['player_name']
+                          == player_name if dict['event_type_name'] == 'Shot']
+    unique_entry_count = len(set(dict['id'] for dict in player_name_filter))
+
+    return unique_entry_count
