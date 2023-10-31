@@ -22,7 +22,10 @@ def get_unique_teams(data):
     """
     Return a set of unique team names from the provided data.
     """
-    return
+        # As sets are unique data elements, duplicates are filtered-out
+    unique_team_names = set(dict['team_name'] for dict in data)
+
+    return unique_team_names
 
 def get_most_common_event_type(data):
     """
