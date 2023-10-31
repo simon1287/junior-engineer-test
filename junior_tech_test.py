@@ -106,11 +106,15 @@ def count_successful_passes(data):
 
     return unique_entry_count
 
+
 def filter_by_period(data, period):
     """
     Return a list of events that occurred in the provided period (e.g., 1 or 2).
     """
-    return
+    period_filter = [dict for dict in data if dict['period'] == period]
+        
+    return period_filter
+
 
 def count_shots_by_player(data, player_name):
     """
