@@ -50,7 +50,14 @@ def count_event_type_by_team(data, team_name, event_type_name):
     """
     Count the number of events of a specific type for a given team.
     """
-    return
+    team_name_filtered_data = filter_by_team(data,team_name)
+    count = 0
+
+    for dict in team_name_filtered_data:
+        if dict['event_type_name'] == event_type_name:
+            count += 1
+    
+    return count
 
 def average_pass_length_by_team(data, team_name):
     """
