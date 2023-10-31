@@ -1,8 +1,22 @@
+import csv
+
+# I noted the wording "please don't use the pandas library or similar".
+# Therefore, all functions have been developed without using libraries,
+# such as math, collections, statistics etc.
+# However, I have no issues implementing these. :-)
+
 def read_csv_file(file_path):
     """
     Read a CSV file and return its content as a list of dictionaries.
     """
-    return
+    try:
+        with open(file_path, 'r') as data:
+            reader = csv.DictReader(data)
+            output = list(reader)
+        return output
+    except IOError as e:
+        print(e)
+
 
 def get_unique_teams(data):
     """
