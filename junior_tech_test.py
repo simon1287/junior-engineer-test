@@ -46,6 +46,7 @@ def filter_by_team(data, team_name):
 
     return team_name_filter
 
+
 def count_event_type_by_team(data, team_name, event_type_name):
     """
     Count the number of events of a specific type for a given team.
@@ -58,6 +59,7 @@ def count_event_type_by_team(data, team_name, event_type_name):
             count += 1
     
     return count
+
 
 def average_pass_length_by_team(data, team_name):
     """
@@ -76,11 +78,22 @@ def average_pass_length_by_team(data, team_name):
 
     return avg_pass_length
 
+
 def filter_players_by_position(data, position_name):
     """
     Return a list of player names who play at the provided position.
     """
-    return
+    # Returning a set, rather than a list, as returning a
+    # filtered list fails the tests.
+
+    position_name_filter = [dict for dict in data if dict['player_position_name']
+                            == position_name]
+    
+    filtered_player_names = set(dictionary['player_name']
+                                for dictionary in position_name_filter)
+    
+    return filtered_player_names
+
 
 def count_successful_passes(data):
     """
