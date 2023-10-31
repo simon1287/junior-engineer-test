@@ -63,7 +63,18 @@ def average_pass_length_by_team(data, team_name):
     """
     Calculate the average pass length for the provided team to 1 decimal place
     """
-    return
+    team_name_filtered_data = filter_by_team(data, team_name)
+    pass_length_total = float()
+    count = int()
+
+    for dict in team_name_filtered_data:
+        if dict['pass_length'] != '':
+            pass_length_total += float(dict['pass_length'])
+            count += 1
+    
+    avg_pass_length = round(pass_length_total / count, 1)
+
+    return avg_pass_length
 
 def filter_players_by_position(data, position_name):
     """
