@@ -42,7 +42,9 @@ def filter_by_team(data, team_name):
     """
     Filter the data by the provided team name and return the filtered data.
     """
-    return
+    team_name_filter = [dict for dict in data if dict['team_name'] == team_name]
+
+    return team_name_filter
 
 def count_event_type_by_team(data, team_name, event_type_name):
     """
