@@ -99,7 +99,12 @@ def count_successful_passes(data):
     """
     Count the number of successful passes (not considering pass outcome).
     """
-    return
+    successful_pass_filter = [dict for dict in data if dict['event_type_name']
+                              == 'Pass' if dict['outcome_name'] == '']
+    
+    unique_entry_count = len(set(dict['id'] for dict in successful_pass_filter))
+
+    return unique_entry_count
 
 def filter_by_period(data, period):
     """
