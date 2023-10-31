@@ -31,7 +31,12 @@ def get_most_common_event_type(data):
     """
     Return the most common event type name from the provided data.
     """
-    return
+    event_type_list = [dict['event_type_name'] for dict in data]
+
+    func_output = max(set(event_type_list), key=event_type_list.count)
+
+    return func_output
+
 
 def filter_by_team(data, team_name):
     """
