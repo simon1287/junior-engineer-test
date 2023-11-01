@@ -54,11 +54,11 @@ def count_event_type_by_team(data, team_name, event_type_name):
     """
     Count the number of events of a specific type for a given team.
     """
-    # I noted that some events in this dataset have duplicate entries 
+    # I noted that some events in this dataset have duplicate entries
     # to capture additional info, such as Shots using multiple rows to capture
     # positions of other players in the vicinity. I originally wrote this
-    # function as below, which didn't filter for unique events, before re-writing it 
-    # to account for this.
+    # function as below, which didn't filter for unique events, before
+    # re-writing it to account for this.
     #
     # team_name_filtered_data = filter_by_team(data, team_name)
     # count = 0
@@ -70,12 +70,12 @@ def count_event_type_by_team(data, team_name, event_type_name):
     # return count
 
     team_name_filtered_data = filter_by_team(data, team_name)
-    
+
     event_name_filter = [dict for dict in team_name_filtered_data
-                           if dict['event_type_name'] == event_type_name]
+                         if dict['event_type_name'] == event_type_name]
 
     unique_entry_count = len(set(dict['id'] for dict in event_name_filter))
-    
+
     return unique_entry_count
 
 
